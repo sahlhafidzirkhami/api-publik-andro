@@ -1,0 +1,137 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212"
+    tools:context=".ui.MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="24dp">
+
+        <ImageView
+            android:id="@+id/ivSuperhero"
+            android:layout_width="0dp"
+            android:layout_height="400dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+        <View
+            android:id="@+id/gradientOverlay"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/gradient_overlay"
+            app:layout_constraintBottom_toBottomOf="@id/ivSuperhero"
+            app:layout_constraintEnd_toEndOf="@id/ivSuperhero"
+            app:layout_constraintStart_toStartOf="@id/ivSuperhero"
+            app:layout_constraintTop_toTopOf="@id/ivSuperhero" />
+        <TextView
+            android:id="@+id/tvSuperheroName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:textColor="@android:color/white"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/tvFullName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Goblin Queen" />
+        <TextView
+            android:id="@+id/tvFullName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:textColor="#E0E0E0"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/ivSuperhero"
+            app:layout_constraintEnd_toEndOf="@id/tvSuperheroName"
+            app:layout_constraintStart_toStartOf="@id/tvSuperheroName"
+            tools:text="Madelyne Jennifer Pryor" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardPowerstats"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:cardBackgroundColor="#212121"
+            app:layout_constraintEnd_toEndOf="@id/tvSuperheroName"
+            app:layout_constraintStart_toStartOf="@id/tvSuperheroName"
+            app:layout_constraintTop_toBottomOf="@id/ivSuperhero">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Powerstats"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <com.github.mikephil.charting.charts.RadarChart
+                    android:id="@+id/radarChartStats"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="30dp"
+                    android:layout_height="250dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardAppearance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="#212121"
+            app:layout_constraintEnd_toEndOf="@id/tvSuperheroName"
+            app:layout_constraintStart_toStartOf="@id/tvSuperheroName"
+            app:layout_constraintTop_toBottomOf="@id/cardPowerstats">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:text="Physical Attributes"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView android:id="@+id/tvGender" tools:text="Gender: Female" android:textColor="#E0E0E0" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <TextView android:id="@+id/tvRace" tools:text="Race: Mutant" android:textColor="#E0E0E0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp"/>
+                <TextView android:id="@+id/tvHeight" tools:text="Height: 168 cm" android:textColor="#E0E0E0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp"/>
+                <TextView android:id="@+id/tvWeight" tools:text="Weight: 50 kg" android:textColor="#E0E0E0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp"/>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
